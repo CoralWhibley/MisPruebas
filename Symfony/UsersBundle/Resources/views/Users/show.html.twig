@@ -1,0 +1,24 @@
+<h2> LISTAR USUARIOS </h2>
+<table>
+	<tr>
+	<th>ID</th>
+	<th>USERNAME</th>
+	<th>PASSWORD</th>
+	<tr>
+{% for r in rg %}
+    <tr>
+    	<td>{{ r.id_user }} </td> 
+        <td>{{ r.username }}</td>
+        <td>{{ r.password}}</td>
+        <td>{{ r.email}}</td>
+        <td>{{ r.fechaNacimiento|date("m/d/Y") }}</td>
+        <td><a href="http://localhost:8000/edit/{{ r.id_user }}"> Editar</a></td>
+    	<td><a href="http://localhost:8000/delete/{{ r.id_user }}"> Eliminar</a></td>
+    </tr> 
+{% else %}
+    <tr>
+        <td>No hay resultados.</td>
+    </tr>
+{% endfor %}
+</table>
+<a href="http://localhost:8000/list"> Volver a listar</a>

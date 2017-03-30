@@ -1,0 +1,78 @@
+{# src/UsersBundle/Resources/views/Default/create.html.twig #}
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Crear </title>
+	<!-- Versión compilada y comprimida del CSS de Bootstrap -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+ 
+	<!-- Tema opcional -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+	 
+	<!-- Versión compilada y comprimida del JavaScript de Bootstrap -->
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+	<style>
+		fieldset.scheduler-border {
+		    border: 1px groove #ddd;
+		   
+		}
+
+		legend.scheduler-border {
+		    font-size: 1.2em;
+		    font-weight: bold;
+		    text-align: center;
+		}
+	</style>
+</head>
+<body style="margin:10px">
+  {{ form_start(form) }}
+  <fieldset class="scheduler-border col-sm-5">
+    <legend class="scheduler-border">{{titulo}}</legend>
+     <div class="form-group">
+      <div class="col-sm-12">
+	  	<label>{{ form_label(form.username) }}</label>
+        <div class="input-group">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+          {{ form_widget(form.username, {'attr': {'class': 'form-control'}}) }}
+        </div>
+      </div>
+    </div>
+     <div class="form-group">
+      <div class="col-sm-12">
+	  	<label>{{ form_label(form.password) }}</label>
+        <div class="input-group">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+          {{ form_widget(form.password, {'attr': {'class': 'form-control'}}) }}
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-12">
+	  	<label>{{ form_label(form.email) }}</label>
+        <div class="input-group">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+          {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+        </div>
+      </div>
+    </div> 
+    <div class="form-group">
+      <div class="col-sm-12">
+	  	<label>{{ form_label(form.fechaNacimiento) }}</label>
+        <div class="input-group">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+          {{ form_widget(form.fechaNacimiento, {'attr': {'class': 'form-control'}}) }}
+        </div>
+      </div>
+    </div> 
+    <div class="form-group col-sm-12">
+      <div class="">
+       {{ form_widget(form.save)}}
+       {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary btn-lg btn-block login-button'}}) }}
+      </div>
+    </div>
+    </legend>
+    </fieldset>
+   </form>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<h2> LISTAR USUARIOS </h2>
+{% for flash_message in app.session.flashBag.get('success') %}
+    <div style="color: green">
+        {{ flash_message }}
+    </div>
+{% endfor %}
+{% for flash_message in app.session.flashBag.get('error') %}
+    <div style="color: red">
+        {{ flash_message }}
+    </div>
+{% endfor %}
+
+<table>
+	<tr>
+	<th>ID</th>
+	<th>USERNAME</th>
+	<tr>
+{% for r in rg %}
+    <tr>
+    	<td>{{ r.id_user }} </td> 
+        <td>{{ r.username }}</td>
+        <td><a href="http://localhost:8000/show/{{ r.id_user }}"> Mostrar</a></td>
+        <td><a href="http://localhost:8000/edit/{{ r.id_user }}"> Editar</a></td>
+    	<td><a href="http://localhost:8000/delete/{{ r.id_user }}"> Eliminar</a></td>
+
+    </tr> 
+{% else %}
+    <tr>
+        <td>No hay resultados.</td>
+    </tr>
+{% endfor %}
+</table>
+
+<p>Pinche <a href="http://localhost:8000/create"> aquí </a> para crear un nuevo usuario.</p>

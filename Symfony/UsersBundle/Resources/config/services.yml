@@ -1,0 +1,8 @@
+services:
+  srv_Operaciones:
+    class:  UsersBundle\Servicios\Operaciones
+    arguments: ["@srv_formater"]
+
+  srv_formater:
+    class: UsersBundle\Servicios\Formater
+    arguments: ["%srv_formater.decimal%"]

@@ -1,0 +1,26 @@
+users_homepage:
+    path:     /
+    defaults: { _controller: UsersBundle:Default:index }
+user_list:
+    path:     /list
+    defaults: { _controller: UsersBundle:Users:list }
+
+user_show:
+    path:     /show/{id}
+    defaults: { _controller: UsersBundle:Users:show }
+
+user_create:
+    path:     /create
+    defaults: { _controller: UsersBundle:Users:create }
+
+user_edit:
+    path:     /edit/{id}
+    defaults: { _controller: UsersBundle:Users:edit }
+
+user_delete:
+    path:     /delete/{id}
+    defaults: { _controller: UsersBundle:Users:delete }
+
+cuentas:
+    path: /servicio
+    defaults: {_controller: UsersBundle:Default:cuentas }
