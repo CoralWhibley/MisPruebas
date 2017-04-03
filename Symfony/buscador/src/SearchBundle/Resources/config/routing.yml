@@ -1,0 +1,7 @@
+search_homepage:
+    path:     /
+    defaults: { _controller: SearchBundle:Default:index }
+
+buscador_youtube:
+    path: /buscador
+    defaults: { _controller: SearchBundle:Search:youtube }
