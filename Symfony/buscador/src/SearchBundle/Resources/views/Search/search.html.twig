@@ -33,12 +33,12 @@
 	    		</fieldset>
 		   {{ form_end(form) }}
 
-		   {# if youtube_videos == true #}		   	
+		   {% if youtube_videos == true %}		   	
 		   <div class="videos">
 				{% for video in youtube_videos %}
 				<table>
 				 <tr> 
-				    <td rowspan="5"><img src="{{video.url_img}}" /></td>
+				    <td rowspan="6"><img src="{{video.url_img}}" /></td>
 				  </tr>
 				  <tr>
 				  	<th> <h3> {{video.title}}</h3></th>
@@ -49,11 +49,12 @@
 				  <tr>
 				  	<td> <strong> Fecha: </strong> {{video.fecha|date("m/d/Y")}}</td>
 				  </tr>
+			
 
 				 </table>
 				 
 				{% endfor %}
 			</div>
-		   {# endif #}		   
+		   {% endif %}		   
 	</body>
 </html>

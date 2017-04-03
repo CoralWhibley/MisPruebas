@@ -16,7 +16,7 @@ class SearchController extends Controller{
         $busqueda = new Search();
     	$form = $this->createForm(SearchType::class, $busqueda);
     	$form->handleRequest($request);
-
+    	$videos=array();
     	if($form->isValid()){
     		$client = new Google_Client();
 
@@ -24,16 +24,19 @@ class SearchController extends Controller{
 			
 			$service = new Google_Service_YouTube($client);
 
-			$searchResponse = $service->search->listSearch('id,snippet', array('q' => $busqueda->getSearch(), 'maxResults' => 8,));
+			$searchResponse = $service->search->listSearch('id,snippet', array('q' => $busqueda->getSearch(), 'maxResults' => 10,));
+			
 
 			foreach ($searchResponse['items'] as $searchResult) {
-	            if($searchResult['id']['kind']="youtube#video"){
-	                $videos[]= array("title" => $searchResult['snippet']['title'], "url_img" => $searchResult['snippet']['thumbnails']['default']['url'], "fecha" => $searchResult['snippet']['publisetAt'], "canal"=>$searchResult['snippet']['channelTitle']);
+
+	            if($searchResult['id']['kind']=="youtube#video"){
+	            	
+	                $videos[]= array("title" => $searchResult['snippet']['title'], "url_img" => $searchResult['snippet']['thumbnails']['default']['url'], "fecha" => $searchResult['snippet']['publisetAt'], "canal"=>$searchResult['snippet']['channelTitle'],);
     			}
     		}
     		return $this->render('SearchBundle:Search:search.html.twig', array('form' => $form->createView(),'youtube_videos' => $videos));
        	}
-        return $this->render('SearchBundle:Search:search.html.twig', array('form' => $form->createView(), 'youtube_videos'=>'false'));
+        return $this->render('SearchBundle:Search:search.html.twig', array('form' => $form->createView(), 'youtube_videos'=>$videos));
     }   
 }
 ?>
