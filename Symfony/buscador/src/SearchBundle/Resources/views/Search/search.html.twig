@@ -1,0 +1,36 @@
+{# src/SearchBundle/Resources/views/Search/search.html.twig #}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Buscador </title>
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+		<style>
+			fieldset.scheduler-border {
+			    border: 2px groove #ddd;
+			    border-radius: 10px;
+			    padding: 10px;
+			}			   
+		</style>
+	</head>
+	<body style="margin:10px">
+		<div class="col-md-10 col-md-offset-4">
+			{{ form_start(form, {'class': 'form-horizontal'}) }}
+	  			<fieldset class="scheduler-border col-sm-5">
+	  				<!-- input search -->
+				     <div class="form-group col-sm-12">
+					  	<label>{{ form_label(form.search) }}</label>
+				        <div class="input-group">
+				          <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+				          {{ form_widget(form.search, {'attr': {'class': 'form-control'}}) }}
+				        </div>
+				    </div>
+
+				    <!-- boton enviar -->
+				    <div class="form-group col-sm-12">
+				       {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary btn-lg btn-block login-button'}}) }}
+				    </div>
+	    		</fieldset>
+		   {{ form_end(form) }}
+	   </div>
+	</body>
+</html>
